@@ -60,9 +60,9 @@ export const rootReducer = (state = initialState, action: ReduxActionParams) => 
 		case WORDS_REQUEST:
 			return { ...state, searchPhrase: action.payload.trim(), requestedWords: [], similarWords: [], wordsLoading: true, requestError: '' };
 		case WORDS_REQUEST_SUCCESS:
-			return { ...state, requestedWords: action.payload, wordsLoading: false };
+			return { ...state, requestedWords: action.payload.sort((wordA: any, wordB: any) => wordA.meta.id > wordB.meta.id ? true : false), wordsLoading: false };
 		case WORDS_REQUEST_SIMILAR:
-			return { ...state, requestedWords: [], similarWords: action.payload, wordsLoading: false };
+			return { ...state, requestedWords: [], similarWords: action.payload.sort(), wordsLoading: false };
 		case WORDS_REQUEST_FAILURE:
 			return { ...state, requestedWords: initialState.requestedWords, wordsLoading: false, requestError: action.payload };
 

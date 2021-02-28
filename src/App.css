@@ -81,7 +81,11 @@ header {
   background-color: rgb(40, 40, 40);
   margin-bottom: 15px;
   cursor: pointer;
-  transition: opacity ease-out 0.1s;
+  transition: opacity ease-out 0.2s, background-color ease-out 0.2s;
+}
+
+.word-row:hover {
+  background-color: rgb(50, 50, 50);
 }
 
 .word-row:last-child {
@@ -90,6 +94,10 @@ header {
 
 .word-row.word-row-dnd-active {
   opacity: 0.5;
+}
+
+.word-row.word-row-dnd-enter:hover {
+  background-color: rgb(40, 40, 40);
 }
 
 .word-row.word-row-dnd-enter::before {
