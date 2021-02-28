@@ -17,8 +17,12 @@ export function innerSearch(haystack: any, needle: string): boolean {
 
 export function uniquePartsOfSpeech(dictionary: any): any {
 	let result: any = {};
+	let tmp: any = {};
 	for (let word in dictionary) {
-		if (dictionary[word].fl) result[dictionary[word].fl] = dictionary[word].fl;
+		if (dictionary[word].fl) tmp[dictionary[word].fl] = dictionary[word].fl;
 	}
+	Object.keys(tmp).sort().forEach(item => {
+		result[item] = tmp[item];
+	});
 	return result;
 }
