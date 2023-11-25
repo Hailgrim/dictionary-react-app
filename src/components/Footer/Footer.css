@@ -1,0 +1,11 @@
+.footer {
+  font-size: 1.2rem;
+  color: rgb(150, 150, 150);
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+}
+
+.footer .footer__link {
+  color: rgb(150, 150, 150);
+}

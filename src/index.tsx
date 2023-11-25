@@ -1,27 +1,31 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
+import { applyMiddleware, compose, legacy_createStore } from 'redux';
+import { Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
-import { applyMiddleware, compose, createStore } from 'redux';
-import createSagaMiddleware from 'redux-saga';
-import { rootReducer } from './redux/rootReducer';
-import { sagaWatcher } from './redux/sagas';
+import { rootReducer } from './store/rootReducer';
+import { sagaWatcher } from './store/sagas';
 
 const saga = createSagaMiddleware();
-const store = createStore(rootReducer, compose(
-	applyMiddleware(saga)
-));
+const store = legacy_createStore(
+  rootReducer,
+  compose(applyMiddleware(saga)),
+);
 saga.run(sagaWatcher);
 
-ReactDOM.render(
-	<React.StrictMode>
-		<Provider store={store}>
-			<App />
-		</Provider>
-	</React.StrictMode>,
-	document.getElementById('root')
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

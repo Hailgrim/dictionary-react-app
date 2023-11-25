@@ -1,0 +1,20 @@
+header {
+  background-color: rgb(50, 50, 50);
+}
+
+.menu-link {
+  display: inline-block;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 1.5rem;
+  outline: none;
+  opacity: 0.75;
+  transition: opacity ease-out 0.2s;
+}
+
+.menu-link:hover,
+.menu-link.active {
+  opacity: 1;
+}

@@ -1,0 +1,141 @@
+.word-row {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.6rem;
+  position: relative;
+  padding: 1rem 1.5rem;
+  background-color: rgb(40, 40, 40);
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: opacity ease-out 0.2s, background-color ease-out 0.2s;
+}
+
+.word-row:hover {
+  background-color: rgb(50, 50, 50);
+}
+
+.word-row:last-child {
+  margin-bottom: 0;
+}
+
+.word-row.word-row--dnd-active {
+  opacity: 0.5;
+}
+
+.word-row.word-row--dnd-enter:hover {
+  background-color: rgb(40, 40, 40);
+}
+
+.word-row.word-row--dnd-enter::before {
+  content: '';
+  position: absolute;
+  top: -0.1rem;
+  left: 0;
+  width: 100%;
+  height: 0.1rem;
+  background-color: rgb(75, 75, 75);
+}
+
+.word-row .word-row__dnd {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+}
+
+.word-row .word-row__content {
+  flex-direction: row;
+  display: flex;
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.word-row.word-row--active .word-row__content {
+  flex-direction: column;
+  white-space: normal;
+}
+
+.word-row .word-row__word {
+  margin-right: 1.5rem;
+  font-weight: bold;
+}
+
+.word-row .word-row__subword {
+  display: none;
+}
+
+.word-row .word-row__trans {
+  display: none;
+  font-weight: lighter;
+}
+
+.word-row.word-row--active .word-row__trans {
+  display: block;
+}
+
+.word-row.word-row--active .word-row__subword {
+  display: inline;
+}
+
+.word-row .word-row__def {
+  display: flex;
+  flex-direction: row;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.word-row.word-row--active .word-row__def {
+  flex-direction: column;
+}
+
+.word-row .word-row__type {
+  margin-right: 1.5rem;
+  font-style: italic;
+}
+
+.word-row .word-row__star {
+  margin-left: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.word-row .word-row__svg {
+  width: 1.7rem;
+  height: 1.7rem;
+  opacity: 0.5;
+  fill: transparent;
+  display: block;
+  transition: opacity ease-out 0.2s;
+}
+
+.word-row .word-row__svg:hover {
+  opacity: 1;
+}
+
+.word-row .word-row__svg-active {
+  fill: white;
+}
+
+.word-row .word-row__g {
+  stroke-width: 6%;
+  stroke: white;
+  stroke-linejoin: bevel;
+}
+
+.word-row .word-row__text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: none;
+}
+
+.word-row .word-row__def .word-row__text:first-child {
+  display: block;
+}
+
+.word-row.word-row--active .word-row__def .word-row__text {
+  display: block;
+  border-top: 0.1rem solid rgb(60, 60, 60);
+  margin-top: 0.5rem;
+  padding-top: 0.2rem;
+}
